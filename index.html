@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Library</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(120deg, #121212, #444);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            animation: fadeInPage 1.2s ease-in-out;
+        }
+
+        @keyframes fadeInPage {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        header {
+            background: rgba(31, 31, 31, 0.9);
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-radius: 10px;
+            animation: slideDown 1s ease-out;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        .container {
+            flex: 1;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .search-bar {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .search-bar input {
+            width: 90%;
+            max-width: 600px;
+            padding: 12px;
+            font-size: 1rem;
+            border-radius: 25px;
+            border: none;
+            background: #222;
+            color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            transition: all 0.4s ease;
+        }
+
+        .search-bar input:focus {
+            outline: none;
+            border: 2px solid #ff9800;
+            box-shadow: 0 0 15px rgba(255, 152, 0, 0.8);
+            transform: scale(1.05);
+        }
+
+        .music-collection {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        /* Animations for cards appearing on scroll */
+        .music-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #1e1e1e;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    will-change: opacity, transform;
+        }
+
+        .music-box.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .music-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(255, 152, 0, 0.7);
+        }
+
+        .music-box img {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+        .music-box img:hover {
+            transform: rotate(5deg);
+        }
+
+        .music-box h3 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    color: #ff9800;
+}
+.music-box audio {
+    margin-top: auto; /* Ensures the player stays at the bottom */
+    width: 100%;
+    border-radius: 10px;
+}
+        
+
+        footer {
+            background: rgba(34, 34, 34, 0.9);
+            color: #aaa;
+            text-align: center;
+            padding: 10px 5px;
+            font-size: 0.8rem;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            animation: fadeInPage 1.5s ease-out;
+        }
+
+        footer a {
+            color: #ff9800;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Music Library</h1>
+    </header>
+
+    <div class="container">
+        <div class="search-bar">
+            <input type="text" id="searchBar" placeholder="Search for a song..." oninput="searchSongs()">
+        </div>
+
+        <div id="musicCollection" class="music-collection">
+            <!-- Song cards will be inserted here by script -->
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Music Library. <a href="#">Privacy Policy</a></p>
+    </footer>
+
+    <script>
+        const songs = [
+        {
+                id: 1,
+                title: "Matt Pridgyn - Second Wind",
+                src: "songs/Matt Pridgyn - Second Wind.mp3",
+                cover: "coverpages/Matt Pridgyn - Second Wind.jpg"
+            },
+            {
+                id: 2,
+                title: "No Hero - On My Mind",
+                src: "songs/No Hero - On My Mind.mp3",
+                cover: "coverpages/No Hero - On My Mind.jpg"
+            },
+            {
+                id: 3,
+                title: "NCS - Ocean",
+                src: "songs/Seanyy - Ocean [NCS Release].mp3",
+                cover: "coverpages/ocean_coverpage.jpg"
+            },
+            {
+                id: 4,
+                title: "My Heart x Everything Mashup",
+                src: "songs/My Heart x Everything Mashup.mp3",
+                cover: "coverpages/My Heart x Everything Mashup.jpg"
+            },
+            {
+                id: 5,
+                title: "Syn Cole - I Can Feel",
+                src: "songs/Syn Cole - I Can Feel [NCS Release].mp3",
+                cover: "coverpages/i_can_feel_coverpage.jpg"
+            },
+            {
+                id: 6,
+                title: "NCS - Royalty",
+                src: "songs/royalty.mp3",
+                cover: "coverpages/royalty_coverpage.jpg"
+            },
+            {
+                id: 7,
+                title: "UNDEAD HiyoriOST",
+                src: "songs/UNDEAD-HiyoriOST.mp3",
+                cover: "coverpages/UNDEAD-HiyoriOST_cover.jpg"
+            },
+             {
+                id: 8,
+                title: "Legends Never Die: ft. Alan Walker (Megalovania Remix)",
+                src: "songs/Legends Never Die (Alan Walker Remix)(Megalovania Remix).mp3",
+                cover: "coverpages/legendsnever die_enhanced.jpg"
+            },
+            {
+                id: 9,
+                title: "Miles Above You",
+                src: "songs/Miles Above You.mp3",
+                cover: "coverpages/Miles Above You.png"
+            },
+            {
+                id: 10,
+                title: "PHANTASM - Toki Tsukasadoru Juuni no Meiyaku",
+                src: "songs/SteinsGate Ending (Toki Tsukasadoru Juuni no Meiyaku).mp3",
+                cover: "coverpages/PHATASM - Toki Tsukasadoru Juuni no Meiyaku.png"
+            },
+            {
+                id: 11,
+                title: "RIENK & NCT - Freefall",
+                src: "songs/NCT, RIENK - Freefall [NCS Release].mp3",
+                cover: "coverpages/NCT, RIENK - Freefall [NCS Release].jpg"
+            },
+            {
+                id: 12,
+                title: "Warriyo - Mortals (feat. Laura Brehm) [NCS Release]",
+                src: "songs/Warriyo, Laura Brehm - Mortals (feat. Laura Brehm) [NCS Release].mp3",
+                cover: "coverpages/Warriyo, Laura Brehm - Mortals (feat. Laura Brehm) [NCS Release].jpg"
+            }
+        ];
+
+        const musicCollection = document.getElementById('musicCollection');
+
+        function displaySongs(filteredSongs = songs) {
+            musicCollection.innerHTML = '';
+            filteredSongs.forEach(song => {
+                const songCard = `
+                    <div class="music-box">
+                        <img src="${song.cover}" alt="${song.title}">
+                        <h3>${song.title}</h3>
+                        <audio controls>
+                            <source src="${song.src}" type="audio/mpeg">
+                        </audio>
+                    </div>
+                `;
+                musicCollection.innerHTML += songCard;
+            });
+
+            addScrollAnimation();
+        }
+
+        function searchSongs() {
+            const searchTerm = document.getElementById('searchBar').value.toLowerCase();
+            const filteredSongs = songs.filter(song => song.title.toLowerCase().includes(searchTerm));
+            displaySongs(filteredSongs);
+        }
+
+        function addScrollAnimation() {
+            const musicBoxes = document.querySelectorAll('.music-box');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            musicBoxes.forEach(box => observer.observe(box));
+        }
+
+        displaySongs();
+    </script>
+</body>
+</html>
