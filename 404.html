@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 - Page Not Found</title>
+  <link rel="stylesheet" href="misc_css/404.css">
+</head>
+<body>
+  <div class="background">
+    <div class="stars"></div>
+  </div>
+  <div class="container">
+    <h1 id="easter-egg-trigger">404</h1>
+    <p>Oops! The page you're looking for seems lost in space.</p>
+    <a href="index.html" class="button">Return to Home</a>
+  </div>
+
+  <div class="ufo" id="ufo">
+    <div class="beam"></div>
+    <div class="body"></div>
+    <div class="lights"></div>
+  </div>
+
+  <script>
+    // Easter egg: UFO animation
+    const ufo = document.getElementById('ufo');
+    const trigger = document.getElementById('easter-egg-trigger');
+
+    trigger.addEventListener('click', () => {
+      ufo.style.display = 'block';
+      ufo.style.animation = 'flyIn 4s ease-in-out';
+
+      setTimeout(() => {
+        ufo.style.display = 'none';
+      }, 4000);
+    });
+  </script>
+</body>
+</html>
