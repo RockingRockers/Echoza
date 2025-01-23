@@ -3,15 +3,12 @@
 
 A a open Source Music library design for people who do not want to code, or are lazy to do so. this requires you to do nearly no work and have a music library like this: 
 
-Default Theme
+Themes
 ![Defualt Theme](https://cdn.discordapp.com/attachments/1291807849701179402/1331278189019926618/image.png?ex=679108ee&is=678fb76e&hm=9e7404c433e2d5b8de92ceace5af97cb04a6d503b63371af7a3d7cce9ed505b9&)
-
-Sapphire Theme
-![sapphire theme](https://cdn.discordapp.com/attachments/1291807849701179402/1331278349896519831/image.png?ex=67910914&is=678fb794&hm=7facb48a38f056a8f31434bdc094856ef256c4445bb7972fcdf2a7f7937462c5&)
 
 #
 ## Why Choose Echoza?
-![showcase](https://cdn.discordapp.com/attachments/1291807849701179402/1331329501195538503/Echoza.png?ex=679138b7&is=678fe737&hm=cead82cb4b2f013e769abf501d44dccd7f0322245883e601a7c1412cb855f88c&)
+![showcase](https://ibb.co/12p0Hfw)
 
 - Over 5 Modern Designs
 - Works with Mobile
