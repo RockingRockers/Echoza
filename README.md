@@ -4,11 +4,13 @@
 A a open Source Music library design for people who do not want to code, or are lazy to do so. this requires you to do nearly no work and have a music library like this: 
 
 Themes
-![Defualt Theme](https://cdn.discordapp.com/attachments/1291807849701179402/1331278189019926618/image.png?ex=679108ee&is=678fb76e&hm=9e7404c433e2d5b8de92ceace5af97cb04a6d503b63371af7a3d7cce9ed505b9&)
+![designs](https://github.com/user-attachments/assets/d8ff9b97-967a-46b1-afe8-14d9180c287b)
+
 
 #
 ## Why Choose Echoza?
-![showcase](https://ibb.co/12p0Hfw)
+![image](https://github.com/user-attachments/assets/2efcf19c-d3a8-4aa7-8516-ca614b250c1b)
+
 
 - Over 5 Modern Designs
 - Works with Mobile
@@ -94,7 +96,7 @@ When updating, **never delete or replace** the `songs.js` file—this will erase
 
 Always check the update log for specific instructions to ensure a smooth update process.
 
-![Misc](https://cdn.discordapp.com/attachments/1291807849701179402/1331358974657822802/Echoza_Misc.png?ex=6791542b&is=679002ab&hm=c184ce469a7799589dbef76b8bcf6c71a8ed588fd47f391086b28b9092f9616a&)
+![image](https://github.com/user-attachments/assets/ce6b1ab1-a2d8-4af3-bf33-d9658552169d)
 # TIPS & Configs
 ### Structure
 ```
