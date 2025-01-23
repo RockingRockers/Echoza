@@ -1,0 +1,78 @@
+/* Enhanced Loading Screen Styles */
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    z-index: 9999;
+    transition: opacity 0.5s ease-in-out;
+}
+
+#loading-screen .loading-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    animation: fadeIn 2s ease-in-out;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+#loading-screen .loading-content p {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    animation: fadeIn 2s ease-in-out;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+
+#progress-container {
+    position: relative;
+    width: 350px;
+    height: 25px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+#progress-bar {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, #4caf50, #81c784);
+    box-shadow: 0 0 15px #4caf50;
+    transition: width 0.3s ease;
+}
+
+#progress-percentage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1rem;
+    color: #ffffff;
+    font-weight: bold;
+    pointer-events: none;
+}
+
+/* Background Gradient Animation */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+.pattaya-regular {
+    font-family: "Pattaya", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
